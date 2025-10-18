@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Casino</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🎲 Casino</div>
+    <div class="balance">Balance: $<span id="balance">0</span></div>
+  </header>
+
+  <main class="container">
+    <nav class="tabs">
+      <button class="tab active" data-tab="slots">🎰 Slots</button>
+      <button class="tab" data-tab="blackjack">🃏 Blackjack</button>
+      <button class="tab" data-tab="wheel">🎡 Wheel</button>
+      <button class="tab" data-tab="coinflip">🪙 Coin Flip</button>
+      <button class="tab" data-tab="dice">🎲 Dice</button>
+      <button class="tab" data-tab="hilo">⬆️⬇️ HiLo</button>
+      <button class="tab" data-tab="crash">🚀 Crash</button>
+      <button class="tab" data-tab="plinko">🔻 Plinko</button>
+      <button class="tab" data-tab="mines">💣 Mines</button>
+      <button class="tab" data-tab="poker">🂡 Poker</button>
+      <button class="tab" data-tab="scratch">🧧 Scratch</button>
+      <button class="tab" data-tab="roulette">🎯 Roulette</button>
+      <button id="reset" class="ghost">Reset Balance</button>
+    </nav>
+
+    <!-- Slots -->
+<section id="slots" class="panel active">
+  <div class="reels">
+    <div class="reel" id="reel0">🍒</div>
+    <div class="reel" id="reel1">🍋</div>
+    <div class="reel" id="reel2">⭐</div>
+  </div>
+  <div class="controls">
+    <label>Bet <input id="slotBet" type="number" value="10" min="1"></label>
+    <button id="spin" class="primary">Spin</button>
+  </div>
+  <div id="slotMsg" class="msg"></div>
+</section>
+
+
+    <!-- Blackjack -->
+    <section id="blackjack" class="panel">
+      <div class="bj-table">
+        <div class="hand">
+          <div class="label">Dealer</div>
+          <div id="dealerCards" class="cards"></div>
+          <div class="score" id="dealerScore"></div>
+        </div>
+        <div class="hand">
+          <div class="label">Player</div>
+          <div id="playerCards" class="cards"></div>
+          <div class="score" id="playerScore"></div>
+        </div>
+      </div>
+      <div class="bj-controls controls">
+        <label>Bet <input id="bjBet" type="number" value="10" min="1"></label>
+        <button id="bjDeal" class="primary">Deal</button>
+        <button id="bjHit">Hit</button>
+        <button id="bjStand">Stand</button>
+        <button id="bjDouble">Double</button>
+      </div>
+      <div id="bjMsg" class="msg"></div>
+    </section>
+
+    <!-- Wheel -->
+<section id="wheel" class="panel">
+  <div class="wheel-ui">
+    <div id="wheelDisplay" class="reel">🎡</div>
+    <div class="controls">
+      <button id="spinWheel" class="primary">SPIN ($250)</button>
+      <button id="freeWheel" disabled>Free Spin</button>
+    </div>
+    <div id="wheelMsg" class="msg"></div>
+  </div>
+</section>
+
+    <!-- Coin Flip -->
+    <section id="coinflip" class="panel">
+      <div class="controls">
+        <label>Bet <input id="coinBet" type="number" value="10" min="1"></label>
+        <label>Pick
+          <select id="coinPick"><option value="H">Heads</option><option value="T">Tails</option></select>
+        </label>
+        <button id="coinFlip" class="primary">Flip</button>
+      </div>
+      <div class="big-emoji" id="coinShow">🪙</div>
+      <div id="coinMsg" class="msg"></div>
+    </section>
+
+    <!-- Dice / Craps (simple) -->
+    <section id="dice" class="panel">
+      <div class="dice-area">
+        <div class="die" id="die1">🎲</div>
+        <div class="die" id="die2">🎲</div>
+      </div>
+      <div class="controls">
+        <label>Bet <input id="diceBet" type="number" value="10" min="1"></label>
+        <button id="diceRoll" class="primary">Roll</button>
+      </div>
+      <div id="diceMsg" class="msg"></div>
+    </section>
+
+    <!-- HiLo -->
+    <section id="hilo" class="panel">
+      <div class="controls">
+        <label>Bet <input id="hiloBet" type="number" value="10" min="1"></label>
+        <button id="hiloStart" class="primary">Start</button>
+        <button id="hiloHigher">Higher</button>
+        <button id="hiloLower">Lower</button>
+      </div>
+      <div class="cards-row">
+        <div><div class="label">Current</div><div class="card" id="hiloCurrent">?</div></div>
+        <div><div class="label">Next</div><div class="card" id="hiloNext">?</div></div>
+      </div>
+      <div id="hiloMsg" class="msg"></div>
+    </section>
+
+    <!-- Crash -->
+    <section id="crash" class="panel">
+      <div class="crash-display"><div class="crash-mult" id="crashMult">1.00×</div></div>
+      <div class="controls">
+        <label>Bet <input id="crashBet" type="number" value="10" min="1"></label>
+        <label>Cash Out @ <input id="crashCash" type="number" value="2" step="0.1" min="1.01"></label>
+        <button id="crashGo" class="primary">Go</button>
+      </div>
+      <div id="crashMsg" class="msg"></div>
+    </section>
+
+    <!-- Plinko -->
+    <section id="plinko" class="panel">
+      <div class="controls">
+        <label>Bet <input id="plinkoBet" type="number" value="10" min="1"></label>
+        <label>Rows <input id="plinkoRows" type="number" value="10" min="6" max="14"></label>
+        <label>Risk
+          <select id="plinkoRisk"><option value="low">Low</option><option value="med" selected>Med</option><option value="high">High</option></select>
+        </label>
+        <button id="plinkoDrop" class="primary">Drop</button>
+      </div>
+      <div id="plinkoBoard" class="plinko-board"></div>
+      <div id="plinkoMsg" class="msg"></div>
+    </section>
+
+    <!-- Mines -->
+    <section id="mines" class="panel">
+      <div class="controls">
+        <label>Bet <input id="minesBet" type="number" value="10" min="1"></label>
+        <label>Bombs <input id="minesBombs" type="number" value="5" min="1" max="15"></label>
+        <button id="minesStart" class="primary">Start</button>
+        <button id="minesCash">Cash Out</button>
+      </div>
+      <div class="mines-grid" id="minesGrid"></div>
+      <div id="minesMsg" class="msg"></div>
+    </section>
+
+    <!-- Poker (High Card) -->
+    <section id="poker" class="panel">
+      <div class="controls">
+        <label>Bet <input id="pokerBet" type="number" value="10" min="1"></label>
+        <button id="pokerDeal" class="primary">Deal</button>
+      </div>
+      <div class="cards-row">
+        <div><div class="label">Dealer</div><div class="card" id="pokerDealer">?</div></div>
+        <div><div class="label">Player</div><div class="card" id="pokerPlayer">?</div></div>
+      </div>
+      <div id="pokerMsg" class="msg"></div>
+    </section>
+
+    <!-- Scratch -->
+    <section id="scratch" class="panel">
+      <div class="controls"><button id="scratchBuy" class="primary">Buy Ticket ($10)</button></div>
+      <div id="scratchGrid" class="scratch-grid"></div>
+      <div id="scratchMsg" class="msg"></div>
+    </section>
+
+    <!-- Roulette -->
+    <section id="roulette" class="panel">
+      <div class="controls">
+        <label>Bet <input id="rouletteBet" type="number" value="10" min="1"></label>
+        <label>Type
+          <select id="rouletteType">
+            <option value="number" selected>Number</option>
+            <option value="red">Red</option>
+            <option value="black">Black</option>
+            <option value="odd">Odd</option>
+            <option value="even">Even</option>
+            <option value="low">1-18</option>
+            <option value="high">19-36</option>
+          </select>
+        </label>
+        <button id="rouletteSpin" class="primary">Spin</button>
+      </div>
+      <div class="roulette-area">
+        <div class="roulette-pointer">▼</div>
+        <div id="rouletteWheel" class="roulette-wheel"></div>
+      </div>
+      <div class="roulette-board" id="rouletteBoard"></div>
+      <div id="rouletteMsg" class="msg"></div>
+    </section>
+
+  </main>
+
+  <footer class="fineprint">Everything runs locally. Balance is saved in your browser.</footer>
+  <script src="app.js"></script>
+</body>
+</html>

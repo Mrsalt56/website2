@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-adsense-account" content="ca-pub-3748865129790331">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salty Games</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
+</head>
+<body>
+
+ <button id="sidebarToggle" class="sidebar-toggle" aria-label="Open sidebar">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+<!-- Sidebar -->
+<aside id="siteSidebar" class="site-sidebar" aria-hidden="true">
+  <button id="sidebarClose" class="sidebar-close" aria-label="Close sidebar">&times;</button>
+
+  <div class="sidebar-section">
+    <h3>Quick Actions</h3>
+    <button id="sbSuggest" class="suggest-btn">
+      <i class="fa-solid fa-lightbulb"></i> Suggest a game
+    </button>
+    <button id="sbReport" class="report-btn">
+      <i class="fa-solid fa-flag"></i> Report a problem
+    </button>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Community</h3>
+    <a class="sb-link" href="https://discord.gg/qJn2PgFbdH" target="_blank" rel="noopener">
+      <i class="fa-brands fa-discord"></i> Join Discord
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Proxy</h3>
+    <ul class="proxy-list">
+      <li><a href="https://mrsalt56.com/games/proxy" target="_blank" rel="noopener">Proxy</a></li>
+    </ul>
+    <p class="proxy-note">
+      ⚠️ WAIT 30-60 SECONDS FOR LINK TO LOAD ⚠️ Use full link, e.g., <code>discord.com</code>
+    </p>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Shoutout Queue</h3>
+
+    <div id="shoutoutForm">
+      <input type="text" id="userName" placeholder="Enter your name">
+      <button id="submitBtn">Submit</button>
+      <p id="cooldownMsg" style="color:red; font-size:0.8rem;"></p>
+    </div>
+
+    <ul id="queueList" style="list-style:none; padding-left:0; max-height:200px; overflow-y:auto;"></ul>
+  </div>
+</aside>
+  <main>
+
+    <header class="site-header">
+      <div class="logo">
+        <img src="images/logo.png" alt="Salty Logo">
+        <h1>Salty</h1>
+      </div>
+
+      <nav class="site-nav">
+        <a href="#" data-filter="all">All</a>
+        <a href="#" data-filter="hot">Trending</a>
+        <a href="#" data-filter="new">New</a>
+        <a href="#" data-filter="puzzle">Puzzle</a>
+        <a href="#" data-filter="sports">Sports</a>
+        <a href="#" data-filter="platformer">Platformer</a>
+        <a href="#" data-filter="multiplayer">Multiplayer</a>
+        <a href="#" data-filter="action">Action</a>
+        <a href="#" data-filter="arcade">Arcade</a>
+        <a href="#" data-filter="shooter">Shooter</a>
+        <a href="#" data-filter="rpg">RPG</a>
+        <a href="#" data-filter="idle">Idle</a>
+        <a href="#" data-filter="simulation">Simulation</a>
+        <a href="#" data-filter="rhythm">Rhythm</a>
+        <a href="#" data-filter="racing">Racing</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>2nd period AVID on top</h2>
+      <p>❤️🌹❤️Milo padildo❤️🌹❤️</p>
+      <div class="search">
+        <input type="text" placeholder="Search games...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div id="search-results" class="search-results-bar"></div>
+    </section>
+
+<section class="games-section">
+  <h2>Trending Now</h2>
+  <div class="games-row">
+  <button class="scroll-btn left"><i class="fa-solid fa-chevron-left"></i></button>
+  <div class="games-grid">
+<div class="game-card" data-genre="multiplayer" data-popularity="hot" data-link="games/1v1lol/">
+  <img src="images/1v1-lol_1x1.jpg" alt="1v1lol">
+  <span class="badge hot">Hot</span>
+  <h3>1v1lol</h3>
+</div>
+
+<div class="game-card" data-genre="Arcade" data-popularity="hot" data-link="games/crossyrp/">
+  <img src="images/road.jpg" alt="Crossy road">
+  <span class="badge hot">Hot</span>
+  <h3>Crossy road</h3>
+</div>
+    
+<div class="game-card" data-genre="puzzle" data-popularity="new" data-link="games/2048/">
+  <img src="images/2048_logo.svg.png" alt="2048">
+  <span class="badge new">New</span>
+  <h3>2048</h3>
+</div>
+
+<div class="game-card" data-genre="sports" data-popularity="hot" data-link="games/leveld2/">
+  <img src="images/devil.jpg" alt="Level devil">
+  <span class="badge hot">Hot</span>
+  <h3>Level devil</h3>
+</div>
+
+<div class="game-card" data-genre="Shooter" data-popularity="hot" data-link="games/funny-shooter/">
+  <img src="images/funnysh.png" alt="funny shooter">
+  <span class="badge hot">Hot</span>
+  <h3>funny shooter</h3>
+</div>
+    
+<div class="game-card" data-genre="sports" data-popularity="hot" data-link="games/Line2/">
+  <img src="images/line.png" alt="Linebacker alley 2">
+  <span class="badge hot">Hot</span>
+  <h3>Linebacker alley 2</h3>
+</div>
+
+<div class="game-card" data-genre="Action" data-popularity="hot" data-link="games/hole.io/">
+  <img src="images/Hole.io.webp" alt="Hill.io">
+  <span class="badge hot">Hot</span>
+  <h3>Hole.io</h3>
+</div>
+    
+<div class="game-card" data-genre="Arcade" data-popularity="trending" data-link="games/fruit-ninja">
+  <img src="games/ninja/thumb.png" alt="Fruit ninja">
+  <span class="badge trending">Trending</span>
+  <h3>Fruit ninja</h3>
+</div>
+
+<div class="game-card" data-genre="sports" data-popularity="hot" data-link="games/hillc/">
+  <img src="images/hillr.png" alt="Hill climb racing">
+  <span class="badge hot">Hot</span>
+  <h3>Hill climb racing</h3>
+</div>
+    
+<div class="game-card" data-genre="puzzle" data-popularity="hot" data-link="games/drive-mad/">
+  <img src="images/drive-mad.jpg" alt="Drive mad">
+  <span class="badge hot">Hot</span>
+  <h3>Drive mad</h3>
+</div>
+    
+<div class="game-card" data-genre="rhythm" data-popularity="trending" data-link="games/a-dance-of-fire-and-ice/">
+  <img src="images/icefire.jpg" alt="A Dance of Fire and Ice">
+  <span class="badge trending">Trending</span>
+  <h3>A Dance of Fire and Ice</h3>
+</div>
+
+<div class="game-card" data-genre="multiplayer" data-popularity="hot" data-link="games/agario-minigame/">
+  <img src="images/agar.io.jpg" alt="Agario Minigame">
+  <span class="badge hot">Hot</span>
+  <h3>Agario Minigame</h3>
+</div>
+    
+<div class="game-card" data-genre="puzzle" data-popularity="hot" data-link="games/snakeg/">
+  <img src="images/snakeg.jpg" alt="Google snake">
+  <span class="badge hot">Hot</span>
+  <h3>Google snake</h3>
+</div>
+    
+<div class="game-card" data-genre="puzzle" data-popularity="hot" data-link="games/brain2/">
+  <img src="images/brain2.png" alt="Brain test 2">
+  <span class="badge hot">Hot</span>
+  <h3>brain test 2</h3>
+</div>
+
+<div class="game-card" data-genre="Arcade" data-popularity="hot" data-link="games/temple/">
+  <img src="images/temple.jpg" alt="Temple run 2">
+  <span class="badge hot">Hot</span>
+  <h3>Temple run 2</h3>
+</div>
+    
+<div class="game-card" data-genre="sports" data-popularity="hot" data-link="games/basketball-stars/">
+  <img src="images/basketball.jpg" alt="Basketball Stars">
+  <span class="badge hot">Hot</span>
+  <h3>Basketball Stars</h3>
+</div>
+
+<div class="game-card" data-genre="rhythm" data-popularity="trending" data-link="games/bowmaster/">
+  <img src="images/bow.jpg" alt="Bowmaster">
+  <span class="badge trending">Trending</span>
+  <h3>Bowmaster</h3>
+</div>
+    
+<div class="game-card" data-genre="sports" data-popularity="hot" data-link="games/basketrandom/">
+  <img src="images/basketr.avif" alt="Basketball Random">
+  <span class="badge hot">Hot</span>
+  <h3>Basketball Random</h3>
+</div>
+
+<div class="game-card" data-genre="Shooter" data-popularity="hot" data-link="games/getaway/">
+  <img src="images/getaway.png" alt="Getaway shootout">
+  <span class="badge hot">Hot</span>
+  <h3>Getaway shootout</h3>
+</div>
+    
+<div class="game-card" data-genre="Arcade" data-popularity="hot" data-link="games/doodle/">
+  <img src="games/doodle/doodle.png" alt="Doodle jump">
+  <span class="badge hot">Hot</span>
+  <h3>Doodle jump</h3>
+</div>
+
+<div class="game-card" data-genre="Arcade" data-popularity="trending" data-link="games/hook">
+  <img src="images/Stickmanh.webp" alt="Stickman hook">
+  <span class="badge trending">Trending</span>
+  <h3>Stickman hook</h3>
+</div>
+    
+<div class="game-card" data-genre="puzzle" data-popularity="hot" data-link="games/Tetris/">
+  <img src="images/tetris.png" alt="Tetris">
+  <span class="badge hot">Hot</span>
+  <h3>Tetris</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="new" data-link="games/bike-mania/">
+  <img src="images/bike-mania_1x1.png" alt="Bike Mania">
+  <span class="badge new">New</span>
+  <h3>Bike Mania</h3>
+</div>
+
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/stickwar/">
+  <img src="images/stick.jpg" alt="Stick war">
+  <span class="badge trending">Trending</span>
+  <h3>Stick war</h3>
+</div>
+
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/fnaf1/">
+  <img src="images/fanf1.jpg" alt="Five nights at freddies">
+  <span class="badge trending">Trending</span>
+  <h3>Five nights at freddies</h3>
+</div>
+
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/fnaf3/">
+  <img src="images/fnaf 3.webp" alt="Five nights at freddies">
+  <span class="badge trending">Trending</span>
+  <h3>Five nights at freddies 3</h3>
+</div>
+    
+<div class="game-card" data-genre="simulation" data-popularity="new" data-link="games/bitlife/">
+  <img src="images/bitlife.png.png" alt="bitlife">
+  <span class="badge new">New</span>
+  <h3>bitlife</h3>
+</div>
+
+<div class="game-card" data-genre="Arcade" data-popularity="new" data-link="games/tunnel-rush/">
+  <img src="games/tunnel-rush/img/tunnel.jpg" alt="Tunnel rush">
+  <span class="badge new">New</span>
+  <h3>Tunnel rush</h3>
+</div>
+    
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/bob-the-robber-2/">
+  <img src="images/bob-the-robber-2.png" alt="Bob the Robber 2">
+  <span class="badge trending">Trending</span>
+  <h3>Bob the Robber 2</h3>
+</div>
+
+<div class="game-card" data-genre="simulation" data-popularity="new" data-link="games/mc/">
+  <img src="images/mc1.jpg" alt="Minecraft">
+  <span class="badge new">New</span>
+  <h3>Minecraft</h3>
+</div>
+    
+<div class="game-card" data-genre="idle" data-popularity="new" data-link="games/minesweeper/">
+  <img src="games/minesweeper/img/minesweeper.png" alt="Minesweeper">
+  <span class="badge new">New</span>
+  <h3>Minesweeper</h3>
+</div>
+
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/madness/">
+  <img src="images/Madness.webp" alt="Madness Combat">
+  <span class="badge trending">Trending</span>
+  <h3>Madness Combat</h3>
+</div>
+    
+<div class="game-card" data-genre="puzzle" data-popularity="new" data-link="games/brainrot-clicker/">
+  <img src="images/italian-brainrot-clicker.jpg" alt="italian brainrot clicker">
+  <span class="badge new">New</span>
+  <h3>italian brainrot clicker</h3>
+</div>
+
+<div class="game-card" data-genre="puzzle" data-popularity="new" data-link="games/fireboyicegirl/">
+  <img src="images/fireboy.jpg" alt="Fire boy and water boy">
+  <span class="badge new">New</span>
+  <h3>Fire boy and water boy</h3>
+</div>
+    
+<div class="game-card" data-genre="Arcade" data-popularity="trending" data-link="games/flappy/">
+  <img src="games/flappy/assets/thumb.png" alt="Flappy bird">
+  <span class="badge trending">Trending</span>
+  <h3>Flappy bird</h3>
+</div>
+
+<div class="game-card" data-genre="puzzle" data-popularity="trending" data-link="games/breaklock/">
+  <img src="images/breaklock.jpg" alt="Breaklock">
+  <span class="badge trending">Trending</span>
+  <h3>Breaklock</h3>
+</div>
+    
+<div class="game-card" data-genre="action" data-popularity="hot" data-link="games/chroma/">
+  <img src="images/180911_164021_Proof.PNG.9ecf7a2889c32de0b1abaf96d374900a.png" alt="Chroma">
+  <span class="badge hot">Hot</span>
+  <h3>Chroma</h3>
+</div>
+
+<div class="game-card" data-genre="idle" data-popularity="new" data-link="games/cookie/">
+  <img src="images/Cookie_Clicker.png" alt="Cookie Clicker">
+  <span class="badge new">New</span>
+  <h3>Cookie Clicker</h3>
+</div>
+
+<div class="game-card" data-genre="Arcade" data-popularity="hot" data-link="games/dreadhead/">
+  <img src="images/dreadhead.png" alt="Dreadhead parkour">
+  <span class="badge hot">Hot</span>
+  <h3>Dreadhead parkour</h3>
+</div>
+    
+<div class="game-card" data-genre="arcade" data-popularity="trending" data-link="games/cubefield/">
+  <img src="images/cubefield.webp" alt="Cubefield">
+  <span class="badge trending">Trending</span>
+  <h3>Cubefield</h3>
+</div>
+
+<div class="game-card" data-genre="arcade" data-popularity="hot" data-link="games/dinosaur/">
+  <img src="images/offline dino.webp" alt="Dinosaur">
+  <span class="badge hot">Hot</span>
+  <h3>Dinosaur</h3>
+</div>
+
+<div class="game-card" data-genre="rpg" data-popularity="hot" data-link="games/ducklife/">
+  <img src="images/DuckLife.jpg" alt="DuckLife">
+  <span class="badge hot">Hot</span>
+  <h3>DuckLife</h3>
+</div>
+
+<div class="game-card" data-genre="rpg" data-popularity="hot" data-link="games/ducklife3/">
+  <img src="images/duck-life-3.webp" alt="DuckLife 3">
+  <span class="badge hot">Hot</span>
+  <h3>DuckLife 3</h3>
+</div>
+
+<div class="game-card" data-genre="rpg" data-popularity="hot" data-link="games/ducklife4/">
+  <img src="images/ducklife4.png" alt="DuckLife 4">
+  <span class="badge hot">Hot</span>
+  <h3>DuckLife 4</h3>
+</div>
+
+<div class="game-card" data-genre="puzzle" data-popularity="trending" data-link="games/fireboy-and-watergirl-forest-temple/">
+  <img src="images/fireboy.jpg" alt="Fireboy and Watergirl">
+  <span class="badge trending">Trending</span>
+  <h3>Fireboy and Watergirl</h3>
+</div>
+    
+<div class="game-card" data-genre="puzzle" data-popularity="hot" data-link="games/wordle/">
+  <img src="games/wordle/images/wordle_logo_32x32.png" alt="Wordle">
+  <span class="badge hot">Hot</span>
+  <h3>Wordle</h3>
+</div>
+
+<div class="game-card" data-genre="Arcade" data-popularity="hot" data-link="games/drift-boss/">
+  <img src="games/drift-boss/drift-boss.png" alt="drift boss">
+  <span class="badge hot">Hot</span>
+  <h3>drift boss</h3>
+</div>
+    
+<div class="game-card" data-genre="puzzle" data-popularity="new" data-link="games/worlds-hardest-game/">
+  <img src="games/worlds-hardest-game/images/splash.jpg" alt="worlds-hardest-game">
+  <span class="badge new">New</span>
+  <h3>worlds-hardest-game</h3>
+</div>
+
+<div class="game-card" data-genre="shooter" data-popularity="hot" data-link="games/zombotron/">
+  <img src="images/zombotron.webp" alt="Zombotron">
+  <span class="badge hot">Hot</span>
+  <h3>Zombotron</h3>
+</div>
+
+<div class="game-card" data-genre="shooter" data-popularity="trending" data-link="games/zombotron-2/">
+  <img src="images/zombotron 2.jpg" alt="Zombotron 2">
+  <span class="badge trending">Trending</span>
+  <h3>Zombotron 2</h3>
+</div>
+
+<div class="game-card" data-genre="Arcade" data-popularity="new" data-link="games/coreball/">
+  <img src="images/coreball.jpg" alt="Core ball">
+  <span class="badge new">New</span>
+  <h3>Core ball</h3>
+</div>
+    
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/btd4">
+  <img src="images/BTD4.webp" alt="btd4">
+  <span class="badge trending">Trending</span>
+  <h3>btd4</h3>
+</div>
+     </div>
+      <button class="scroll-btn right"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </section>
+</div>
+</section>
+    <section class="games-section">
+      <h2>New & Featured</h2>
+      <div class="games-row">
+   <button class="scroll-btn left"><i class="fa-solid fa-chevron-left"></i></button>
+  <div class="games-grid">
+<div class="game-card" data-genre="arcade" data-popularity="new" data-link="games/flappy-2048/">
+  <img src="images/flappy2048.png" alt="Flappy 2048">
+  <span class="badge new">New</span>
+  <h3>Flappy 2048</h3>
+</div>
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/btd5">
+  <img src="images/btd5.jpg" alt="btd5">
+  <span class="badge trending">Trending</span>
+  <h3>btd5</h3>
+</div>
+
+<div class="game-card" data-genre="idle" data-popularity="new" data-link="games/casino/">
+  <img src="images/casino.webp" alt="Casino">
+  <span class="badge new">New</span>
+  <h3>Casino</h3>
+</div>
+
+<div class="game-card" data-genre="puzzle" data-popularity="new" data-link="games/ParkingFury/">
+  <img src="games/ParkingFury/assets/game_logo.png" alt="parkingfury">
+  <span class="badge new">New</span>
+  <h3>parkingfury</h3>
+</div>
+
+<div class="game-card" data-genre="Endless runner" data-popularity="new" data-link="games/subwaysurfer/">
+  <img src="images/subway.webp" alt="SubwaySurfer">
+  <span class="badge new">New</span>
+  <h3>SubwaySurfer</h3>
+</div>
+
+<div class="game-card" data-genre="puzzle" data-popularity="new" data-link="games/tomb/">
+  <img src="images/tomb.png" alt="tomb of the mask">
+  <span class="badge new">New</span>
+  <h3>tomb of the mask</h3>
+</div>
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/friendlyfire/">
+  <img src="images/friendly.jpg" alt="Friendly Fire">
+  <span class="badge trending">Trending</span>
+  <h3>Friendly Fire</h3>
+</div>
+
+<div class="game-card" data-genre="puzzle" data-popularity="trending" data-link="games/game-inside-a-game/">
+  <img src="images/gameingame.png" alt="Game Inside a Game">
+  <span class="badge trending">Trending</span>
+  <h3>Game Inside a Game</h3>
+</div>
+
+<div class="game-card" data-genre="puzzle" data-popularity="new" data-link="games/geometry/">
+  <img src="images/geometry.png" alt="Geometry">
+  <span class="badge new">New</span>
+  <h3>Geometry</h3>
+</div>
+
+<div class="game-card" data-genre="card" data-popularity="hot" data-link="games/google-solitaire/">
+  <img src="images/google.jpg" alt="Google Solitaire">
+  <span class="badge hot">Hot</span>
+  <h3>Google Solitaire</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="hot" data-link="games/gopher-kart/">
+  <img src="images/gopher-kart.webp" alt="Gopher Kart">
+  <span class="badge hot">Hot</span>
+  <h3>Gopher Kart</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="trending" data-link="games/hexgl/">
+  <img src="images/hexgl.jpg" alt="HexGL">
+  <span class="badge trending">Trending</span>
+  <h3>HexGL</h3>
+</div>
+
+<div class="game-card" data-genre="puzzle" data-popularity="hot" data-link="games/hextris/">
+  <img src="images/hextris.jpg" alt="Hextris">
+  <span class="badge hot">Hot</span>
+  <h3>Hextris</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="hot" data-link="games/hill-racing/">
+  <img src="images/bike-racing-3.jpg" alt="Hill Racing">
+  <span class="badge hot">Hot</span>
+  <h3>Hill Racing</h3>
+</div>
+
+<div class="game-card" data-genre="puzzle" data-popularity="new" data-link="games/impossiblequiz/">
+  <img src="images/quiz.jpg" alt="impossiblequiz">
+  <span class="badge new">New</span>
+  <h3>impossiblequiz</h3>
+</div>
+
+<div class="game-card" data-genre="multiplayer" data-popularity="hot" data-link="games/madalin-cars-multiplayer/">
+  <img src="images/madalin.avif" alt="Madalin Cars Multiplayer">
+  <span class="badge hot">Hot</span>
+  <h3>Madalin Cars Multiplayer</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="trending" data-link="games/madalin-stunt-cars-2/">
+  <img src="images/madalin2.avif" alt="Madalin Stunt Cars 2">
+  <span class="badge trending">Trending</span>
+  <h3>Madalin Stunt Cars 2</h3>
+</div>
+
+<div class="game-card" data-genre="simulation" data-popularity="new" data-link="games/microsoft-flight-simulator/">
+  <img src="images/Microsoft flight.png" alt="Microsoft Flight Simulator">
+  <span class="badge new">New</span>
+  <h3>Microsoft Flight Simulator</h3>
+</div>
+
+<div class="game-card" data-genre="idle" data-popularity="new" data-link="games/MonkeyMart/">
+  <img src="images/monkey.png" alt="MonkeyMart">
+  <span class="badge new">New</span>
+  <h3>MonkeyMart</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="hot" data-link="games/moto-x3m/">
+  <img src="images/moto-x3m.jpg" alt="Moto X3M">
+  <span class="badge hot">Hot</span>
+  <h3>Moto X3M</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="trending" data-link="games/moto-x3m-pool-party/">
+  <img src="images/moto-x3m-pool-party.png" alt="Moto X3M Pool Party">
+  <span class="badge trending">Trending</span>
+  <h3>Moto X3M Pool Party</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="new" data-link="games/moto-x3m-spooky-land/">
+  <img src="images/MotoX3M-Spookyland.jpg" alt="Moto X3M Spooky Land">
+  <span class="badge new">New</span>
+  <h3>Moto X3M Spooky Land</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="hot" data-link="games/moto-x3m-winter/">
+  <img src="images/moto-x3m-winter.jpg" alt="Moto X3M Winter">
+  <span class="badge hot">Hot</span>
+  <h3>Moto X3M Winter</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="trending" data-link="games/motox3m2/">
+  <img src="images/moto-x3m-2.png" alt="Moto X3M 2">
+  <span class="badge trending">Trending</span>
+  <h3>Moto X3M 2</h3>
+</div>
+        
+<div class="game-card" data-genre="arcade" data-popularity="hot" data-link="games/pacman/">
+  <img src="images/pacman.webp" alt="Pacman">
+  <span class="badge hot">Hot</span>
+  <h3>Pacman</h3>
+</div>
+
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/papasburgeria/">
+  <img src="images/burger.png" alt="papasburgeria">
+  <span class="badge trending">Trending</span>
+  <h3>papasburgeria</h3>
+</div>
+
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/papaspizzaria/">
+  <img src="images/papaspizzaria.jpg" alt="papaspizzaria">
+  <span class="badge trending">Trending</span>
+  <h3>papaspizzaria</h3>
+</div>
+
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/papas-sushiria.html">
+  <img src="images/shushi.png" alt="Papa's Sushiria">
+  <span class="badge trending">Trending</span>
+  <h3>Papa's Sushiria</h3>
+</div>
+
+<div class="game-card" data-genre="action" data-popularity="trending" data-link="games/papas-bakeria.html">
+  <img src="images/papas-bakeria.png" alt="Papa's Bakeria">
+  <span class="badge trending">Trending</span>
+  <h3>Papa's Bakeria</h3>
+</div>
+
+<div class="game-card" data-genre="shooter" data-popularity="trending" data-link="games/radius-raid/">
+  <img src="images/radius raid.jpg" alt="Radius Raid">
+  <span class="badge trending">Trending</span>
+  <h3>Radius Raid</h3>
+</div>
+
+<div class="game-card" data-genre="sports" data-popularity="hot" data-link="games/retro-bowl/">
+  <img src="images/retro-bowl.jpg" alt="Retro Bowl">
+  <span class="badge hot">Hot</span>
+  <h3>Retro Bowl</h3>
+</div>
+
+<div class="game-card" data-genre="Platformer" data-popularity="new" data-link="games/Run 2/">
+  <img src="images/run-2.jpg" alt="Run 2">
+  <span class="badge new">New</span>
+  <h3>Run 2</h3>
+</div>
+
+<div class="game-card" data-genre="arcade" data-popularity="hot" data-link="games/slope/">
+  <img src="images/slope.jpg" alt="Slope">
+  <span class="badge hot">Hot</span>
+  <h3>Slope</h3>
+</div>
+
+<div class="game-card" data-genre="arcade" data-popularity="trending" data-link="games/slope-2/">
+  <img src="images/slope2.jpg" alt="Slope 2">
+  <span class="badge trending">Trending</span>
+  <h3>Slope 2</h3>
+</div>
+  
+  <div class="game-card" data-genre="platformer" data-popularity="hot" data-link="games/sm64/">
+  <img src="images/Mario64.webp" alt="Super Mario 64">
+  <span class="badge hot">Hot</span>
+  <h3>Super Mario 64</h3>
+</div>
+
+<div class="game-card" data-genre="racing" data-popularity="new" data-link="games/snowrider3d/">
+  <img src="images/snowrider.png" alt="snowrider3d">
+  <span class="badge new">New</span>
+  <h3>snowrider3d</h3>
+</div>
+
+<div class="game-card" data-genre="shooter" data-popularity="hot" data-link="games/spaceinvaders/">
+  <img src="images/space invaders.avif" alt="Space Invaders">
+  <span class="badge hot">Hot</span>
+  <h3>Space Invaders</h3>
+</div>
+
+<div class="game-card" data-genre="shooter" data-popularity="trending" data-link="games/superhot/">
+  <img src="images/superhot.jpg" alt="superhot">
+  <span class="badge trending">Trending</span>
+  <h3>superhot</h3>
+</div>
+
+<div class="game-card" data-genre="platformer" data-popularity="trending" data-link="games/vex3/">
+  <img src="images/vex3.jpg" alt="Vex 3">
+  <span class="badge trending">Trending</span>
+  <h3>Vex 3</h3>
+</div>
+
+<div class="game-card" data-genre="platformer" data-popularity="trending" data-link="games/vex4/">
+  <img src="images/vex4.jpg" alt="Vex 4">
+  <span class="badge trending">Trending</span>
+  <h3>Vex 4</h3>
+</div>
+
+<div class="game-card" data-genre="platformer" data-popularity="hot" data-link="games/vex5/">
+  <img src="images/vex5.jpg" alt="Vex 5">
+  <span class="badge hot">Hot</span>
+  <h3>Vex 5</h3>
+</div>
+
+<div class="game-card" data-genre="platformer" data-popularity="trending" data-link="games/vex6/">
+  <img src="images/vex6.jpeg" alt="Vex 6">
+  <span class="badge trending">Trending</span>
+  <h3>Vex 6</h3>
+</div>
+
+<div class="game-card" data-genre="platformer" data-popularity="hot" data-link="games/vex7/">
+  <img src="images/vex7.jpeg" alt="Vex 7">
+  <span class="badge hot">Hot</span>
+  <h3>Vex 7</h3>
+</div>
+   </div>
+      <button class="scroll-btn right"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </section>   
+  </main>
+
+  <div id="suggestionForm" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Suggest a Game</h2>
+      <input type="text" id="gameName" placeholder="Game Name">
+      <textarea id="gameDetails" placeholder="Why should we add it?"></textarea>
+      <button id="sendSuggestion">Send</button>
+    </div>
+  </div>
+
+  <div id="reportForm" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Report a Problem</h2>
+      <input type="text" id="problemTitle" placeholder="Title of the problem">
+      <textarea id="problemDetails" placeholder="Describe the issue..."></textarea>
+      <button id="sendReport">Send</button>
+    </div>
+  </div>
+
+<script type="module">
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyDyk5FAyCRyAn6ll5_nfSV5e16mvi1l-n4",
+  authDomain: "mrsalt56-e6066.firebaseapp.com",
+  databaseURL: "https://mrsalt56-e6066-default-rtdb.firebaseio.com",
+  projectId: "mrsalt56-e6066",
+  storageBucket: "mrsalt56-e6066.appspot.com",
+  messagingSenderId: "716178119141",
+  appId: "1:716178119141:web:2c39c7f79213699a38b70c",
+  measurementId: "G-FZWFSV1K2D"
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.database(app);
+
+const submitBtn = document.getElementById("submitBtn");
+const userNameInput = document.getElementById("userName");
+const queueList = document.getElementById("queueList");
+const cooldownMsg = document.getElementById("cooldownMsg");
+const COOLDOWN = 60 * 1000;
+
+// Submit a shoutout
+submitBtn.addEventListener("click", () => {
+  const name = userNameInput.value.trim();
+  if (!name) return alert("Please enter your name.");
+
+  const lastTime = localStorage.getItem("lastShoutout") || 0;
+  if (Date.now() - lastTime < COOLDOWN) {
+    cooldownMsg.textContent = "Please wait before submitting again!";
+    return;
+  }
+
+  localStorage.setItem("lastShoutout", Date.now());
+  cooldownMsg.textContent = "";
+
+  // Push to Firebase
+  db.ref("shoutouts").push({ name });
+
+  // Clear input
+  userNameInput.value = "";
+
+  // Send to Discord webhook
+  fetch("https://discord.com/api/webhooks/1424618718499176601/6IfTXj3Tdl4FE2YUdrWIBDwOSabR61paQ3YhzCEMfVAK9SLVpXFAbyT7GpiFyCFsAInO", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content: `📢 New shoutout request: **${name}**` })
+  }).catch(console.error);
+});
+
+// Listen for updates and show the 10 most recent shoutouts
+db.ref("shoutouts").orderByKey().limitToLast(10).on("value", snapshot => {
+  const shoutouts = [];
+  snapshot.forEach(childSnap => {
+    shoutouts.push({ key: childSnap.key, name: childSnap.val().name });
+  });
+
+  shoutouts.reverse(); // newest first
+
+  queueList.innerHTML = "";
+  shoutouts.forEach(entry => {
+    const li = document.createElement("li");
+    li.textContent = entry.name;
+
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.className = "remove-btn";
+    removeBtn.onclick = () => {
+      if (prompt("Enter admin password:") === "56") {
+        db.ref(`shoutouts/${entry.key}`).remove();
+      }
+    };
+
+    li.appendChild(removeBtn);
+    queueList.appendChild(li);
+  });
+});
+</script>
+
+  <!-- Vercel Scripts -->
+  <script>
+    window.si = window.si || function() { (window.siq = window.siq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+
+  <script>
+    window.va = window.va || function() { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database-compat.js"></script>
+<script src="script.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,118 @@
+
+:root{
+  --bg:#0f1115; --panel:#171a21; --muted:#9aa4af; --text:#e6edf3; --accent:#7c3aed; --accent2:#22c55e; --danger:#ef4444;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(900px 600px at 80% -10%, rgba(124,58,237,.25), transparent 60%) , radial-gradient(700px 500px at -10% 110%, rgba(34,197,94,.15), transparent 50%), var(--bg); color:var(--text); font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#12151c;border-bottom:1px solid #23262f;position:sticky;top:0;z-index:5}
+.container{max-width:1000px;margin:20px auto;padding:0 16px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.tab,.ghost{padding:8px 12px;border-radius:12px;background:var(--panel);border:1px solid #242836;color:var(--text);cursor:pointer}
+.tab.active{outline:2px solid var(--accent)}
+.panel {display: none;background: transparent !important;border: none !important;box-shadow: none !important;padding: 0;}
+.panel.active { display:block }
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.primary{background:linear-gradient(135deg,var(--accent),#4f46e5);border:none;color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer}
+.msg{margin-top:8px;min-height:20px}
+.reels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:520px;margin:8px auto}
+.reel{height:110px;display:flex;align-items:center;justify-content:center;font-size:60px;background:#12151c;border:1px solid #303644;border-radius:14px}
+.bj-table{display:grid;gap:12px}
+.cards{display:flex;gap:8px;flex-wrap:wrap;min-height:76px}
+.card{width:56px;height:76px;border-radius:10px;border:1px solid #3b4253;background:linear-gradient(180deg,#1c2030,#12151c);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+.card.red{color:#f87171}
+.big-emoji{font-size:64px;text-align:center;margin:10px 0;}
+.dice-area{display:flex;gap:20px;justify-content:center;margin:8px 0}
+.die{font-size:64px}
+.crash-display{display:flex;justify-content:center;align-items:center;background:#12151c;border:1px solid #303644;border-radius:14px;height:140px}
+.crash-mult{font-size:48px;font-weight:900}
+.plinko-board{display:flex;flex-direction:column;gap:6px;align-items:center;margin-top:8px}
+.plinko-row{display:flex;gap:6px}
+.plinko-peg{width:14px;height:14px;border-radius:50%;background:#3b4253;border:1px solid #4b5563}
+.plinko-peg.active{background:var(--accent)}
+.mines-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:420px;margin:10px auto}
+.mine-tile{height:56px;border-radius:10px;border:1px solid #3b4253;background:#12151c;color:#e6edf3;cursor:pointer;font-size:18px}
+.mine-tile.revealed.safe{background:#0f1b13;border-color:#1b3a28}
+.mine-tile.revealed.bomb{background:#2a1313;border-color:#5b2222}
+.scratch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:360px;margin:10px auto}
+.scratch-cell{height:70px;border-radius:12px;border:1px solid #3b4253;background:#12151c;color:#e6edf3;cursor:pointer;font-size:28px;display:flex;align-items:center;justify-content:center}
+#wheelDisplay{height:160px;font-size:72px;background:#12151c;border:1px solid #303644;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.roulette-board{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;max-width:600px;margin:10px auto}
+.roulette-cell{height:36px;border-radius:6px;border:1px solid #3b4253;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer}
+.roulette-cell.red{background:#7f1d1d}
+.roulette-cell.black{background:#111827}
+.roulette-cell.green{background:#065f46}
+.roulette-cell.active{outline:2px solid #f59e0b}
+.roulette-area{position:relative;display:flex;justify-content:center;margin:10px auto}
+.roulette-pointer{position:absolute;top:-8px; font-size:18px; text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.roulette-wheel{width:260px;height:260px;border-radius:50%;border:4px solid #303644;background:#12151c;position:relative;transition:transform 3s cubic-bezier(.17,.67,.32,1.25);box-shadow:0 10px 30px rgba(0,0,0,.35) inset}
+.roulette-wheel {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 4px solid #303644;
+  background: conic-gradient(
+    green 0deg 9.729deg,
+    red 9.729deg 19.458deg,
+    black 19.458deg 29.187deg,
+    red 29.187deg 38.916deg,
+    black 38.916deg 48.645deg,
+    red 48.645deg 58.374deg,
+    black 58.374deg 68.103deg,
+    red 68.103deg 77.832deg,
+    black 77.832deg 87.561deg,
+    red 87.561deg 97.29deg,
+    black 97.29deg 107.019deg,
+    red 107.019deg 116.748deg,
+    black 116.748deg 126.477deg,
+    red 126.477deg 136.206deg,
+    black 136.206deg 145.935deg,
+    red 145.935deg 155.664deg,
+    black 155.664deg 165.393deg,
+    red 165.393deg 175.122deg,
+    black 175.122deg 184.851deg,
+    red 184.851deg 194.58deg,
+    black 194.58deg 204.309deg,
+    red 204.309deg 214.038deg,
+    black 214.038deg 223.767deg,
+    red 223.767deg 233.496deg,
+    black 233.496deg 243.225deg,
+    red 243.225deg 252.954deg,
+    black 252.954deg 262.683deg,
+    red 262.683deg 272.412deg,
+    black 272.412deg 282.141deg,
+    red 282.141deg 291.87deg,
+    black 291.87deg 301.599deg,
+    red 301.599deg 311.328deg,
+    black 311.328deg 321.057deg,
+    red 321.057deg 330.786deg,
+    black 330.786deg 340.515deg,
+    red 340.515deg 350.244deg,
+    black 350.244deg 360deg
+  );
+  position: relative;
+  transition: transform 3s cubic-bezier(.17,.67,.32,1.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35) inset;
+  overflow: hidden;
+}
+.roulette-wheel .num {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+.slice {
+  pointer-events: none;
+}
+/* 2) Make sure the actual UI sits above any decorative pieces */
+.panel, .tabs, .topbar { position: relative; z-index: 2; }
+.roulette-area { position: relative; z-index: 1; }
+
+/* 3) Extra safety: hidden panels can’t catch events even if mis-styled */
+.panel:not(.active) { display: none !important; visibility: hidden; }
+/* 1) Never let the roulette visuals block clicks anywhere */
+.roulette-wheel { 
+  overflow: hidden;     /* clips the big triangle slices to the wheel */
+  pointer-events: none;
