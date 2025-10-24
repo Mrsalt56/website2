@@ -165,54 +165,53 @@ const sendReportBtn = document.getElementById('sendReport');
   // ------------------------
   // Horizontal scrolling grids (smooth + fast)
   // ------------------------
-  document.querySelectorAll('.games-row').forEach(row => {
-    const grid = row.querySelector('.games-grid');
-    const leftBtn = row.querySelector('.scroll-btn.left');
-    const rightBtn = row.querySelector('.scroll-btn.right');
+document.querySelectorAll('.games-row').forEach(row => {
+  const grid = row.querySelector('.games-grid');
+  const leftBtn = row.querySelector('.scroll-btn.left');
+  const rightBtn = row.querySelector('.scroll-btn.right');
 
-    let scrolling = false;
-    let direction = 0;
-    const scrollSpeed = 120; // 🚀 pixels per frame
+  let scrolling = false;
+  let direction = 0;
+  const scrollSpeed = 500; // ⚡ pixels per second — adjust this for faster/slower
 
-    function step() {
-      if (!scrolling) return;
-      grid.scrollLeft += direction * scrollSpeed;
+  let lastTime = 0;
+
+  function step(timestamp) {
+    if (!scrolling) return;
+    if (!lastTime) lastTime = timestamp;
+
+    const delta = (timestamp - lastTime) / 1000; // convert to seconds
+    lastTime = timestamp;
+
+    grid.scrollLeft += direction * scrollSpeed * delta;
+    requestAnimationFrame(step);
+  }
+
+  const startScroll = dir => {
+    direction = dir;
+    if (!scrolling) {
+      scrolling = true;
+      lastTime = 0;
       requestAnimationFrame(step);
     }
+  };
 
-    const startScroll = dir => {
-      direction = dir;
-      if (!scrolling) {
-        scrolling = true;
-        requestAnimationFrame(step);
-      }
-    };
+  const stopScroll = () => { scrolling = false; };
 
-    const stopScroll = () => { scrolling = false; };
+  leftBtn.addEventListener('mousedown', () => startScroll(-1));
+  rightBtn.addEventListener('mousedown', () => startScroll(1));
+  leftBtn.addEventListener('mouseup', stopScroll);
+  rightBtn.addEventListener('mouseup', stopScroll);
+  leftBtn.addEventListener('mouseleave', stopScroll);
+  rightBtn.addEventListener('mouseleave', stopScroll);
 
-    leftBtn.addEventListener('mousedown', () => startScroll(-1));
-    rightBtn.addEventListener('mousedown', () => startScroll(1));
-    leftBtn.addEventListener('mouseup', stopScroll);
-    rightBtn.addEventListener('mouseup', stopScroll);
-    leftBtn.addEventListener('mouseleave', stopScroll);
-    rightBtn.addEventListener('mouseleave', stopScroll);
+  // Mobile touch support
+  leftBtn.addEventListener('touchstart', () => startScroll(-1));
+  rightBtn.addEventListener('touchstart', () => startScroll(1));
+  leftBtn.addEventListener('touchend', stopScroll);
+  rightBtn.addEventListener('touchend', stopScroll);
+});
 
-    // Mobile touch support
-    leftBtn.addEventListener('touchstart', () => startScroll(-1));
-    rightBtn.addEventListener('touchstart', () => startScroll(1));
-    leftBtn.addEventListener('touchend', stopScroll);
-    rightBtn.addEventListener('touchend', stopScroll);
-  });
-  
-  // ------------------------
-  // Sidebar toggle
-  // ------------------------
-  const sidebar = document.getElementById('siteSidebar');
-  const toggle = document.getElementById('sidebarToggle');
-  const closeBtn = document.getElementById('sidebarClose');
-  if(toggle) toggle.addEventListener('click', ()=>sidebar.setAttribute('aria-hidden','false'));
-  if(closeBtn) closeBtn.addEventListener('click', ()=>sidebar.setAttribute('aria-hidden','true'));
-  document.addEventListener('click', e=>{ if(sidebar && toggle && !sidebar.contains(e.target) && !toggle.contains(e.target)) sidebar.setAttribute('aria-hidden','true'); });
 
 // ------------------------
 // Firebase Shoutouts
