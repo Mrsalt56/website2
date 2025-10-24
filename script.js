@@ -172,7 +172,7 @@ document.querySelectorAll('.games-row').forEach(row => {
 
   let scrolling = false;
   let direction = 0;
-  const scrollSpeed = 3000; // ⚡ pixels per second — adjust for faster/slower
+  const scrollSpeed = 5000; // ⚡ pixels per second — adjust for faster/slower
   let lastTime = 0;
 
   function step(timestamp) {
