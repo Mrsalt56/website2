@@ -172,18 +172,22 @@ document.querySelectorAll('.games-row').forEach(row => {
 
   let scrolling = false;
   let direction = 0;
-  const scrollSpeed =8000; // ⚡ pixels per second — adjust this for faster/slower
-
+  const scrollSpeed = 3000; // ⚡ pixels per second — adjust for faster/slower
   let lastTime = 0;
 
   function step(timestamp) {
-    if (!scrolling) return;
-    if (!lastTime) lastTime = timestamp;
+    if (!scrolling) {
+      lastTime = 0; // reset timer when not scrolling
+      return;
+    }
 
-    const delta = (timestamp - lastTime) / 1000; // convert to seconds
+    if (!lastTime) lastTime = timestamp;
+    const delta = (timestamp - lastTime) / 1000; // convert ms → seconds
     lastTime = timestamp;
 
+    // Scroll smoothly
     grid.scrollLeft += direction * scrollSpeed * delta;
+
     requestAnimationFrame(step);
   }
 
@@ -196,21 +200,27 @@ document.querySelectorAll('.games-row').forEach(row => {
     }
   };
 
-  const stopScroll = () => { scrolling = false; };
+  const stopScroll = () => {
+    scrolling = false;
+  };
 
+  // 🖱️ Mouse events
   leftBtn.addEventListener('mousedown', () => startScroll(-1));
   rightBtn.addEventListener('mousedown', () => startScroll(1));
-  leftBtn.addEventListener('mouseup', stopScroll);
-  rightBtn.addEventListener('mouseup', stopScroll);
-  leftBtn.addEventListener('mouseleave', stopScroll);
-  rightBtn.addEventListener('mouseleave', stopScroll);
+  ['mouseup', 'mouseleave'].forEach(event => {
+    leftBtn.addEventListener(event, stopScroll);
+    rightBtn.addEventListener(event, stopScroll);
+  });
 
-  // Mobile touch support
+  // 📱 Touch events
   leftBtn.addEventListener('touchstart', () => startScroll(-1));
   rightBtn.addEventListener('touchstart', () => startScroll(1));
-  leftBtn.addEventListener('touchend', stopScroll);
-  rightBtn.addEventListener('touchend', stopScroll);
+  ['touchend', 'touchcancel'].forEach(event => {
+    leftBtn.addEventListener(event, stopScroll);
+    rightBtn.addEventListener(event, stopScroll);
+  });
 });
+
 
 
 // ------------------------
