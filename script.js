@@ -241,7 +241,7 @@ const COOLDOWN = 60 * 1000;
 // Submit a shoutout
 submitBtn.addEventListener("click", () => {
   const name = userNameInput.value.trim();
-  if (!name) return alert("Please enter your name.");
+  if (!name) return alert("Name submitted✅");
 
   const lastTime = localStorage.getItem("lastShoutout") || 0;
   if (Date.now() - lastTime < COOLDOWN) {
