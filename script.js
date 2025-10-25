@@ -327,3 +327,42 @@ db.ref("shoutouts").orderByChild("timestamp").on("value", snapshot => {
   // ------------------------
   applyFilter('all');
 });
+// ✅ Sidebar Toggle Fix (runs immediately)
+(() => {
+  const sidebar = document.getElementById('siteSidebar');
+  const toggle = document.getElementById('sidebarToggle');
+  const closeBtn = document.getElementById('sidebarClose');
+
+  if (!sidebar || !toggle) {
+    console.warn('Sidebar or toggle button not found');
+    return;
+  }
+
+  console.log('✅ Sidebar toggle initialized');
+
+  function openSidebar() {
+    sidebar.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeSidebar() {
+    sidebar.setAttribute('aria-hidden', 'true');
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openSidebar();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeSidebar();
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+      closeSidebar();
+    }
+  });
+})();
