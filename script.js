@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+console.log('✅ script.js loaded and running');
+
   // ------------------------
   // Game search & filter
   // ------------------------
